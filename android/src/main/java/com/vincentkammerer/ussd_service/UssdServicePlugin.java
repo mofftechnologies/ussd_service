@@ -13,7 +13,6 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 import java.util.concurrent.CompletableFuture;
 
 public class UssdServicePlugin implements FlutterPlugin, MethodCallHandler {
@@ -26,11 +25,6 @@ public class UssdServicePlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
     initialize(binding.getApplicationContext(), binding.getBinaryMessenger());
-  }
-
-  public static void registerWith(Registrar registrar) {
-    UssdServicePlugin instance = new UssdServicePlugin();
-    instance.initialize(registrar.context(), registrar.messenger());
   }
 
   private void initialize(Context context, BinaryMessenger messenger) {
